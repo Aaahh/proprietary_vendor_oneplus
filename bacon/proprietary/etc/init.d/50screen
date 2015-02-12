@@ -1,0 +1,14 @@
+#!/system/bin/sh
+
+# Turn on screen
+log -p i -t screen-off "*** turn screen off ***"
+sleep 10
+cat /sys/class/graphics/fb0/lcdoff
+log -p i -t screen-on "*** turn screen on ***"
+sleep 10
+cat /sys/class/graphics/fb0/lcdon
+sleep 5
+service powerd restart
+log -p i -t pwrkey "*** powred restarted ***"
+sleep 5
+log -p i -t screen-complete "*** done ***"
